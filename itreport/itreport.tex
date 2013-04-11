@@ -15,7 +15,7 @@
 
 The Smart Services Cooperative Research Centre (CRC) is a major research collaboration between major industry (media and finance), government and university partners. As part of its program, Smart Services CRC awards student scholarships for work associated with its various research programs. As a successful scholarship applicant, I was assigned various tasks pertaining to the CRC's research work on content filtering and recommender systems, focusing specifically on the RSVP dating website.
 
-RSVP, owned by Smart Services partner Fairfax Media, is an online dating website which is free to sign up, but charges a fee for subsequent chat interactions, however the user is free to send predefined messages to other users. To increase the number of chat sessions (and thus overall profit), RSVP developed a recommender system, with ``suggested contacts" which had an above average chance of:
+RSVP, owned by Smart Services partner Fairfax Media, is an online dating website which is free to sign up, but charges a fee for subsequent chat interactions, however the user is free to send predefined messages to other users. To increase the number of chat sessions (and thus overall profit), RSVP developed a recommender system, with ``suggested contacts'' which had an above average chance of:
 \begin{enumerate}
   \item being liked by the user, and
   \item the user being liked by them.
@@ -29,6 +29,7 @@ Smart Services was tasked with investigating various strategies and improvements
 \end{enumerate}
 
 Each of these tasks are explained in depth in the following report.
+
 
 \chapter{Projects}
 \section{Text features}
@@ -62,13 +63,32 @@ Each of these tasks are explained in depth in the following report.
 
 
 \chapter{Training}
-My training on the job was not particularly formal, but was very helpful. Since working for Smart Services, I have learnt various technical, analytical and organizational skills.
+My training on the job was not particularly formal, but was very helpful. Since working for Smart Services, I have learned various technical, analytical and organizational skills.
 
-I had no experience with Oracle database or JDBC prior to my ITE, and despite having learned SQL and having used similar DBMS' such as Nexus, PostgreSQL and MySQL, my lack of experience with Oracle was a setback. My supervisors were very helpful and informative with their suggestions on how to approach this side of the project and gave me various pointers on SQL testing and optimisation. Prior to this job I had minimal experience of unit testing database interactions, but have since learned various pragmatic approaches to testing the validity of SQL queries
+When I started my placement at Smart Services CRC, I was provided with the various RSVP recommender system research papers the CRC had produced, as well as an informative book on data mining. Reading these articles and reports gave me an indication of what is involved in data mining and research in general. I received a thorough introduction to the inner workings of recommender systems, including the different types of recommenders (user to product versus user to user), different types of recommender algorithms (collaborative filtering, expert systems, profile matching, etc), and perhaps most importantly different ways of evaluating recommender systems (success rate, coverage.
+
+I had no experience with Oracle database or JDBC prior to my ITE, and despite having learned SQL and having used similar DBMS' such as Nexus, PostgreSQL and MySQL, my lack of experience with Oracle was a setback. My supervisors were very helpful and informative with their suggestions on how to approach this side of the project and gave me various pointers on SQL testing and optimisation. Prior to this job I had minimal experience of unit testing database interactions, but have since learned various pragmatic approaches to testing the validity of SQL queries, such as:
+\begin{itemize}
+  \item Model testing - using an implementation written by somebody else and comparing the results with my implementation
+  \item Writing a test script which gathers results for one test case and then checking the output against my implementations output for that case
+  \item Property testing - checking that the results make sense, and that aggregates of the results such as min, max, average, count and sum are what one would expect
+\end{itemize}
+
+Learning to test database interactions was a vital skill at Smart Services CRC, and I was glad to have my supervisors educate me in the various approaches.
+
 
 \chapter{Relationship to studies}
 My experience at Smart Services CRC has given me the opportunity to put much of the mathematical, computational and engineering theory into practice.
 
+There was a strong focus on statistical analysis in the research being conducted. The skills and knowledge that I had attained in university statistics courses proved to be useful, and furthermore I built upon this knowledge at the CRC. My work experience also heavily drew upon what I had learned in courses such as artificial intelligence and to a lesser extent robot software architecture, due to the common use of data mining and machine learning algorithms by the CRC. It was very useful and informative to see these techniques being used in practice to put in perspective how algorithms such as decision trees and naive bayes classifiers and expert systems perform in various real world situations. This work experience also improved my familiarity and efficiency in working with MS Excel spreadsheets, which will probably be a useful skill in the software engineering industry.
+
+In addition to the mathematical skills I have refined during my placement, I have also had the opportunity to put the software engineering theory I have learned into practice. Writing java programs often drew upon what I learned in ``Design in Computing'' as well as ``Computing 2''. Collaboration on projects was usually minor and was done mainly through email, with people mostly doing their own independent parts, but it was still good experience in working in a team. I became more familiar with various software engineering practices such as the DRY principle, documentation and testing. Writing documentation in particular was quite beneficial to my education as a software engineer, and it was whilst writing user manuals and design specifications that I could draw upon what I had learned in the various software engineering workshops throughout my course.
+
+My placement at Smart Services CRC also gave me the opportunity to practise my scripting skills I had learned in ``Software Construction''. Much, in fact most of the work required writing complex batch scripts to gather statistics from the Oracle database overnight. These skills will without a doubt be useful later on in my career.
+
+
 \chapter{Conclusion}
+My time at Smart Services CRC has proven to be a very fulfilling and educational experience. During my several projects I have gained many useful skills and have had valuable research experience which has improved my ability overall as a software engineer.
+
 
 \end{document}
