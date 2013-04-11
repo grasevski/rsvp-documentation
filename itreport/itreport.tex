@@ -73,26 +73,51 @@ These scripts were for feature extraction and generating statistics respectively
 This project relied on data from a server, but most of the server interaction was factored out of my text feature extraction and analysis software, so that the SQL tables could be downloaded once from the server and the work could be done on a local machine to reduce overheads and inconveniences of connecting to the server.
 
 \subsection{Software environment}
-This project required a significant amount of text processing, and the text processing proved to be the main performance bottleneck. It was desirable to have a program that ran for one minute rather than one day, and for this reason the superior performance of existing software was harnessed. I decided against sticking with the ubiquity of Java, in favor of the Unix shell, and its core utilities such as grep, sed, perl and so on. This was for the sake of performance - grep was not easy to use with Java in an efficient way, and the Unix shell was better suited to the task at hand.
+This project required a significant amount of text processing, and the text processing proved to be the main performance bottleneck. It was desirable to have a program that ran for one minute rather than one day, and for this reason the superior performance of existing software was harnessed. I decided against sticking with the ubiquity of Java, in favor of the Unix shell, and its core utilities such as grep, sed, perl and so on. This was for the sake of performance - grep was not easy to use with Java in an efficient way, and the Unix shell was better suited to the task at hand. Ultimately this had the disadvantage that Windows users had to install either MinGW or Cygwin, but this seemed to be a straightforward process on my machine. On the other hand, it saved on both execution time and development time doing it this way.
 
 \section{Trial statistics}
 % Describe the tasks you were given to do, any contributions you may
 % have made, and the approximate time period spent on each
 % project/responsibility.
 
+My next project was to gather and collate statistics from a trial run which occurred last year. This involved:
+\begin{enumerate}
+  \item Writing several SQL queries
+  \item Exporting the results to delimited text files
+  \item Importing the delimited text files into MS Excel
+\end{enumerate}
+
+Alternatively I could have done the queries from a VBA macro in Excel or something similar to bypass the intermediate text files, but this was not technically feasible due to the time consuming nature of the queries (some queries ran for days). For this reason I chose to run the queries as a background process rather than have a frozen GUI window on my workstation.
+
+Testing was again necessary for this project, and I subsequently wrote a \begin{verbatim}test.sql\end{verbatim} script as a sanity check for the results my programs were producing. My supervisor also provided a test script for me to check against.
+
+Finally, after emailing the finished project to my supervisor, I wrote both a design specification explaining what my software did as well as documentation explaining how to use it. This enabled my supervisor to use my work after my placement had finished.
+
 \subsection{Hardware used}
+The hardware was same as before, connecting to a server from my workstation. However this time I executed the queries remotely on the server from my workstation, rather than downloading the data and doing the processing locally. This was more practical in this instance because the database tables being queried were quite large (in the order of gigabytes), whereas the result sets were relatively small (in the order of kilobytes).
 
 \subsection{Software environment}
-
+This time I used mainly Oracle SQL scripts, and a Java program or two where scripts would have been unwieldy, and I tied it all together in a batch script. Admittedly it would have been nice to have a single self-contained program, but I decided against because this process took a long time to complete, in the order of days. Breaking it up into several programs and scripts allowed for re-running only the programs which had failed or given incorrect output, rather than waiting three days for the entire batch script to finish again.
 
 \section{Homophily}
 % Describe the tasks you were given to do, any contributions you may
 % have made, and the approximate time period spent on each
 % project/responsibility.
 
+My final project at Smart Services was a smaller task. Homophily is the tendency of individuals to associate and bond with similar others. For my supervisors homophily paper, he wished to see the distribution of success rates with respect to the sender and receiver attributes, for example if the senders religion was Christian would they be more succesful with another Christian than people from other religions. I was to:
+\begin{enumerate}
+  \item Gather statistics from the database (as previously)
+  \item Collate these homophily statistics in an MS Excel file
+  \item Analyze and report on the results
+\end{enumerate}
+
+My supervisor had already written a program to do the first step, which saved me a lot of effort.
+
 \subsection{Hardware used}
+I initially ran my supervisors program on my local machine, which queried the Oracle database on the server and stored the results in two tables on the server. I then downloaded these two tables and imported them into Excel on my local machine.
 
 \subsection{Software environment}
+Once the two results tables were in Excel, all that was left to do was to display and summarize this data in a graphical and readable format. I wrote a VBA macro to do this. The macro read from the two results sheets and then subsequently created a summary sheet for each attribute being tested. Once this macro ran, I would look at the summary sheets and note any interesting observations. I then emailed the resultant Excel file and a report of my observations to my supervisor.
 
 
 \chapter{Training}
