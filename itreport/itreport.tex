@@ -32,15 +32,48 @@ Each of these tasks are explained in depth in the following report.
 
 
 \chapter{Projects}
+My work at Smart Services CRC consisted of three main projects, each taking about a month, with some overlap and ongoing work for each one.
+
 \section{Text features}
 % Describe the tasks you were given to do, any contributions you may
 % have made, and the approximate time period spent on each
 % project/responsibility.
 
+My first project at Smart Services CRC was to find out the tastes of the users. More specifically, I was tasked with generating a list of feature vectors (one for each user) from the user-entered text fields. After this I did some testing of the accuracy of my feature vectors, and finally I gathered statistics regarding the success rates of user groups based on their likes and dislikes.
+
+When a user signs up, they can optionally fill in various text fields describing their interests. There were about 7 main fields:
+\begin{description}
+  \item[Headline] A short heading that appears on their profile page
+  \item[Main text] A blurb describing themselves and other miscellaneous information
+  \item[Ideal partner] A blurb describing the qualities they are looking for in a potential partner
+  \item[Books] Taste in books
+  \item[Music] Taste in music
+  \item[Movies] Taste in movies
+  \item[Sport] Taste in sports
+\end{description}
+
+For my project I focused only on the music, movie and sports likes and dislikes of users, and thus I relied on only those text fields. There were some issues with this, for example users would often put all of their text in the main text field rather than use the designated music movies and sport fields, so the coverage wasnt as good as it could have been, but due to time constraints I was unable to test whether this made a significant difference.
+
+There were three main parts to this task:
+\begin{enumerate}
+  \item Generate a feature vector for each user from their text fields
+  \item Test the accuracy and coverage of the above generation
+  \item Generate various statistics regarding the success of interactions between various user groups based on their feature vectors
+\end{enumerate}
+
+These tasks were mostly automated, with the exception of some parts where automation was either not possible or not worth the effort. For instance, the testing could not be completely automated and in fact step 2 required me to manually check 100 generated feature vectors for false negatives and false positives. On the other hand, the automated work was done via scripting. The fruits of my labor resulted (in addition to the required results) in two main scripts, which could be reused when necessary:
+\begin{enumerate}
+  \item \begin{verbatim}rsvpTextAnalysis.sh\end{verbatim}
+  \item \begin{verbatim}rsvpTextStatistics.sh\end{verbatim}
+\end{enumerate}
+
+These scripts were for feature extraction and generating statistics respectively. I provided documentation to my supervisor along with these scripts, explaining installation, usage, purpose and so on.
+
 \subsection{Hardware used}
+This project relied on data from a server, but most of the server interaction was factored out of my text feature extraction and analysis software, so that the SQL tables could be downloaded once from the server and the work could be done on a local machine to reduce overheads and inconveniences of connecting to the server.
 
 \subsection{Software environment}
-
+This project required a significant amount of text processing, and the text processing proved to be the main performance bottleneck. It was desirable to have a program that ran for one minute rather than one day, and for this reason the superior performance of existing software was harnessed. I decided against sticking with the ubiquity of Java, in favor of the Unix shell, and its core utilities such as grep, sed, perl and so on. This was for the sake of performance - grep was not easy to use with Java in an efficient way, and the Unix shell was better suited to the task at hand.
 
 \section{Trial statistics}
 % Describe the tasks you were given to do, any contributions you may
@@ -82,7 +115,7 @@ My experience at Smart Services CRC has given me the opportunity to put much of 
 
 There was a strong focus on statistical analysis in the research being conducted. The skills and knowledge that I had attained in university statistics courses proved to be useful, and furthermore I built upon this knowledge at the CRC. My work experience also heavily drew upon what I had learned in courses such as artificial intelligence and to a lesser extent robot software architecture, due to the common use of data mining and machine learning algorithms by the CRC. It was very useful and informative to see these techniques being used in practice to put in perspective how algorithms such as decision trees and naive bayes classifiers and expert systems perform in various real world situations. This work experience also improved my familiarity and efficiency in working with MS Excel spreadsheets, which will probably be a useful skill in the software engineering industry.
 
-In addition to the mathematical skills I have refined during my placement, I have also had the opportunity to put the software engineering theory I have learned into practice. Writing java programs often drew upon what I learned in ``Design in Computing'' as well as ``Computing 2''. Collaboration on projects was usually minor and was done mainly through email, with people mostly doing their own independent parts, but it was still good experience in working in a team. I became more familiar with various software engineering practices such as the DRY principle, documentation and testing. Writing documentation in particular was quite beneficial to my education as a software engineer, and it was whilst writing user manuals and design specifications that I could draw upon what I had learned in the various software engineering workshops throughout my course.
+In addition to the mathematical skills I have refined during my placement, I have also had the opportunity to put the software engineering theory I have learned into practice. Writing Java programs often drew upon what I learned in ``Design in Computing'' as well as ``Computing 2''. Collaboration on projects was usually minor and was done mainly through email, with people mostly doing their own independent parts, but it was still good experience in working in a team. I became more familiar with various software engineering practices such as the DRY principle, documentation and testing. Writing documentation in particular was quite beneficial to my education as a software engineer, and it was whilst writing user manuals and design specifications that I could draw upon what I had learned in the various software engineering workshops throughout my course.
 
 My placement at Smart Services CRC also gave me the opportunity to practise my scripting skills I had learned in ``Software Construction''. Much, in fact most of the work required writing complex batch scripts to gather statistics from the Oracle database overnight. These skills will without a doubt be useful later on in my career.
 
